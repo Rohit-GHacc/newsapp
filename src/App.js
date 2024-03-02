@@ -10,7 +10,7 @@ export default class App extends Component {
     return (
       <div>
         <NavBar/>
-        <strong>Hello</strong>This is my first class based component react app
+        {/* <strong>Hello</strong>This is my first class based component react app */}
         <News/>
       </div>
     )
