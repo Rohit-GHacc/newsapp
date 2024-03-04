@@ -77,10 +77,8 @@ handlePrevClick = async()=>{
         })}
         <div className="container d-flex justify-content-between">
                     <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button> 
-                    <button className="btn btn-dark" type="button" onClick={this.handleNextClick}>Next &rarr;</button> 
+                    <button disabled={this.state.page +1 > Math.ceil(this.state.totalResults/20)} className="btn btn-dark" type="button" onClick={this.handleNextClick}>Next &rarr;</button> 
                 </div>
-          
-
         </div>
       </div>
       
