@@ -17,7 +17,7 @@ export class News extends Component {
 
  async componentDidMount(){
     console.log('cdm');
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=1&pageSize=${this.props.pageSize}`;
     this.setState({loading: true})
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -30,7 +30,7 @@ handleNextClick = async ()=>{
     console.log('next button clicked')
 
     if (!(this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize))) {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true})
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -45,7 +45,7 @@ handleNextClick = async ()=>{
  
 handlePrevClick = async()=>{
     console.log('previous button clicked')
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
     this.setState({loading: true})
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -59,7 +59,7 @@ handlePrevClick = async()=>{
   render() {
     return (
       <div className='container my-3'>
-        <h1 className='text-center'>NewsPanda - Top Headlines</h1>
+        <h1 className='text-center' style={{margin: '40px 25px'}}>NewsPanda - Top Headlines</h1>
         {this.state.loading && <Spinner />}
         <div className="row">
         {!this.state.loading && this.state.articles.map((element) => {
