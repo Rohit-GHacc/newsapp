@@ -9,13 +9,14 @@ export class News extends Component {
     console.log('hello i am a constructor and i have been called');
     this.state = {
       articles: this.articles,
-      loading: false
+      loading: false,
+      page: 1
     }
  }
 
  async componentDidMount(){
     console.log('cdm');
-    let url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=efbaafb4252d4557b79529f0c3ed595a';
+    let url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=1';
     let data = await fetch(url);
     let parsedData = await data.json()
     console.log(parsedData);
@@ -27,7 +28,7 @@ export class News extends Component {
     return (
       <div className='container my-3'>
         <h2>NewsPanda - Top Headlines</h2>
-        let data = 
+
         <div className="row">
         {this.state.articles.map((element) => {
           console.log(element);
@@ -35,6 +36,10 @@ export class News extends Component {
             <NewsItem title={element.title?element.title.slice(0,45):''} description={element.description?element.description.slice(0,88):''} imageUrl={element.urlToImage?(element.urlToImage):"https://i.ytimg.com/vi/EDxZf687tn4/maxresdefault.jpg"} newsUrl={element.url} />
           </div>
         })}
+        <div className="container d-flex justify-content-between">
+                    <div className="btn btn-dark">&larr; Previous</div>
+                    <div className="btn btn-dark">Next &rarr;</div>
+                </div>
           
 
         </div>
