@@ -17,7 +17,7 @@ export class News extends Component {
 
  async componentDidMount(){
     console.log('cdm');
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=1&pageSize=${this.props.pageSize}`;
     this.setState({loading: true})
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -30,7 +30,7 @@ handleNextClick = async ()=>{
     console.log('next button clicked')
 
     if (!(this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize))) {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true})
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -45,7 +45,7 @@ handleNextClick = async ()=>{
  
 handlePrevClick = async()=>{
     console.log('previous button clicked')
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
     this.setState({loading: true})
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -59,13 +59,13 @@ handlePrevClick = async()=>{
   render() {
     return (
       <div className='container my-3'>
-        <h1 className='text-center' style={{margin: '40px 25px'}}>NewsPanda - Top Headlines</h1>
+        <h1 className='text-center' style={{margin: '40px 25px', color: 'white'}}>NewsPanda - Top Headlines</h1>
         {this.state.loading && <Spinner />}
         <div className="row">
         {!this.state.loading && this.state.articles.map((element) => {
           console.log(element);
           return <div className="col-md-4 " key={element.url}>
-            <NewsItem title={element.title?element.title.slice(0,45):''} description={element.description?element.description.slice(0,88):''} imageUrl={element.urlToImage?(element.urlToImage):"https://i.ytimg.com/vi/EDxZf687tn4/maxresdefault.jpg"} newsUrl={element.url} author = {element.author} publishedAt={element.publishedAt} source={element.source.name} />
+            <NewsItem title={element.title?element.title.slice(0,45):''} description={element.description?element.description.slice(0,88):''} imageUrl={element.urlToImage?(element.urlToImage):"https://i.ytimg.com/vi/EDxZf687tn4/maxresdefault.jpg"} newsUrl={element.url} category={this.props.category} author = {element.author} publishedAt={element.publishedAt} source={element.source.name} />
           </div>
         })}
         <div className="container d-flex justify-content-between">
