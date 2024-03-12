@@ -1,34 +1,34 @@
-import React, { Component, useState } from 'react'
+import React, { Component} from 'react'
 export class NewsItem extends Component {
     
     render() {
         // url for uniquely identify each news item
         let {title,description,imageUrl,newsUrl,author,publishedAt,source} = this.props;
-        console.log(`published at ${publishedAt} by ${author}`);
+        // console.log(`published at ${publishedAt} by ${author}`);
         var colour = 'danger';
         if(this.props.category === 'entertainment'){
             colour = 'warning';
-            console.log(colour);
+            // console.log(colour);
         }
         else if(this.props.category === 'business'){
             colour = 'primary';
-            console.log(colour);
+            // console.log(colour);
         }
         else if(this.props.category === 'sports'){
             colour = 'info';
-            console.log(colour);
+            // console.log(colour);
         }
         else if(this.props.category === 'technology'){
             colour = 'dark';
-            console.log(colour);
+            // console.log(colour);
         }
         else if(this.props.category === 'health'){
             colour = 'success';
-            console.log(colour);
+            // console.log(colour);
         }
         else if(this.props.category === 'science'){
             colour = 'secondary';
-            console.log(colour);
+            // console.log(colour);
         }
         // let [color,setColor]=useState("success")
         return (
@@ -36,7 +36,7 @@ export class NewsItem extends Component {
                 <div className="card my-3 border-light" >
                     <img src={imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body bg-light">
-                        <span class={`position-absolute top-0  text-light p-2 bg-${colour} border border-light rounded`} style={{right: '0%'}}> {source}
+                        <span className={`position-absolute top-0  text-light p-2 bg-${colour} border border-light rounded`} style={{right: '0%'}}> {source}
                         </span>
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text"> {description}...</p>
