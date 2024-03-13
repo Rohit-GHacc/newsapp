@@ -36,7 +36,7 @@ export class NewsItem extends Component {
                 <div className="card my-3 border-light" >
                     <img src={imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body bg-light">
-                        <span className={`position-absolute top-0  text-light p-2 bg-${colour} border border-light rounded`} style={{right: '0%'}}> {source}
+                        <span className={`position-absolute top-0  text-light p-1 m-0 bg-${colour} border border-light rounded`} style={{right: '0%'}}> {source}
                         </span>
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text"> {description}...</p>
