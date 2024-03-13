@@ -1,32 +1,30 @@
-import React, { Component} from 'react'
-export class NewsItem extends Component {
-    
-    render() {
+import React from 'react'
+const NewsItem = (props)=>{
         // url for uniquely identify each news item
-        let {title,description,imageUrl,newsUrl,author,publishedAt,source} = this.props;
+        let {title,description,imageUrl,newsUrl,author,publishedAt,source} = props;
         // console.log(`published at ${publishedAt} by ${author}`);
         var colour = 'danger';
-        if(this.props.category === 'entertainment'){
+        if(props.category === 'entertainment'){
             colour = 'warning';
             // console.log(colour);
         }
-        else if(this.props.category === 'business'){
+        else if(props.category === 'business'){
             colour = 'primary';
             // console.log(colour);
         }
-        else if(this.props.category === 'sports'){
+        else if(props.category === 'sports'){
             colour = 'info';
             // console.log(colour);
         }
-        else if(this.props.category === 'technology'){
+        else if(props.category === 'technology'){
             colour = 'dark';
             // console.log(colour);
         }
-        else if(this.props.category === 'health'){
+        else if(props.category === 'health'){
             colour = 'success';
             // console.log(colour);
         }
-        else if(this.props.category === 'science'){
+        else if(props.category === 'science'){
             colour = 'secondary';
             // console.log(colour);
         }
@@ -48,7 +46,7 @@ export class NewsItem extends Component {
                 
             </div>
         )
-    }
+
 }
 
 export default NewsItem
