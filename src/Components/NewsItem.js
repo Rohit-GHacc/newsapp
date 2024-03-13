@@ -33,10 +33,10 @@ export class NewsItem extends Component {
         // let [color,setColor]=useState("success")
         return (
             <div>
-                <div className="card my-3 border-light" >
+                <div className="card my-3 border-0" >
                     <img src={imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body bg-light">
-                        <span className={`position-absolute top-0  text-light p-1 m-0 bg-${colour} border border-light rounded`} style={{right: '0%'}}> {source}
+                        <span className={`position-absolute top-0  text-light p-1 m-0 bg-${colour} rounded`} style={{right: '0%'}}> {source}
                         </span>
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text"> {description}...</p>
