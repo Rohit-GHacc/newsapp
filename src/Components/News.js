@@ -48,6 +48,7 @@ const News = (props)=> {
 
   useEffect(()=>{
     updateNews();
+    // eslint-disable-next-line
   },[]);
 
 
@@ -63,6 +64,8 @@ const News = (props)=> {
   //   updateNews();
 
   // }
+  
+    // eslint-disable-next-line
   const handleNextClick = async () => {
     // console.log('next button clicked')
     // if (!(page +1 > Math.ceil(totalResults/props.pageSize))) {
@@ -81,6 +84,7 @@ const News = (props)=> {
 
   }
 
+    // eslint-disable-next-line
   const handlePrevClick = async () => {
     // console.log('previous button clicked')
     // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=efbaafb4252d4557b79529f0c3ed595a&page=${page-1}&pageSize=${props.pageSize}`;
@@ -111,7 +115,7 @@ const News = (props)=> {
   }
     return (
       <>
-        <h1 className='text-center' style={{ margin: '40px 25px', color: 'white' }}>NewsPanda - Top {capitalize(props.category)} Headlines</h1>
+        <h1 className='text-center' style={{ margin: '70px 50px 20px 50px', color: 'white' }}>NewsPanda - Top {capitalize(props.category)} Headlines</h1>
         {loading && <Spinner />}
 
         <InfiniteScroll
